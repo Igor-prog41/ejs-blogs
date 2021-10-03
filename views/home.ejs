@@ -1,1 +1,14 @@
+
+<%- include("partials/header") %>
+
 <h1>Home</h1>
+<p> <%= paragraphHomePage %> </p>
+
+<% for (let i=0;i<arrPosts.length;i++){  %>
+    <h1><%= arrPosts[i].title %></h1>
+<p> <%= arrPosts[i].body %> </p>
+<% } %>
+
+
+
+<%- include("partials/footer"); -%>
