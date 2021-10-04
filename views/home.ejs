@@ -4,11 +4,9 @@
 <h1>Home</h1>
 <p> <%= paragraphHomePage %> </p>
 
-<% for (let i=0;i<arrPosts.length;i++){  %>
-    <h1><%= arrPosts[i].title %></h1>
-<p> <%= arrPosts[i].body %> </p>
-<% } %>
-
-
+<% arrPosts.forEach((element)=>{ %>
+    <h1><%=  element.title       %></h1>
+    <p><%=   element.body      %> </p>
+<% })  %>
 
 <%- include("partials/footer"); -%>
