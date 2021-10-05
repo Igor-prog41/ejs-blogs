@@ -1,0 +1,8 @@
+<%- include("partials/header") %>
+
+<% arrPosts.forEach((element)=>{ %>
+    <h1><%=  element.title       %></h1>
+    <p><%=   element.body      %> </p>
+<% })  %>
+
+<%- include("partials/footer"); -%>

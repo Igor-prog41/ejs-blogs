@@ -18,22 +18,52 @@ app.use(express.static("public"));
 
 
 app.get('/post/:stringRequest', (req, res)=> {
-    console.log(req.params.stringRequest)
+    // console.log(req.params.stringRequest)
     
-    // 
     // before compare change both variables to lowercase
-    // 
+    //  use node_modules "lodash" metod: _.lowerCase(str)
+    
+    const lowerCaseForStringRequest = _.lowerCase(req.params.stringRequest);
+
+    const arrFoundPosts = [];
 
     posts.forEach((element)=>{
-        if (element.title===req.params.stringRequest){
-            console.log(" Match found! ");
+
+        const lowerCaseForTitleInArray = _.lowerCase(element.title);
+        
+        if (lowerCaseForTitleInArray===lowerCaseForStringRequest){
+
+            const foundPost = {
+                title: element.title ,
+                body: element.body
+            }
+
+            arrFoundPosts.push(foundPost);
+ 
         }
     })
+
+    if (arrFoundPosts.length === 0){
+        const noFoundPost = {
+            title: "No such post found" ,
+            body: "You can write this post"
+        }
+        arrFoundPosts.push(noFoundPost);
+    }
+
+
+    res.render("post",{
+        arrPosts:arrFoundPosts
+    });
 })
 
 
 
 app.get("/",(req,res)=>{
+
+    // posts.map((element)=>{
+    //      _.truncate([element.body], [options={ 'length': 100}])
+    // })
 
     res.render("home",{
         paragraphHomePage:homeStartingContent,
