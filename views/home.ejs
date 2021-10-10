@@ -6,7 +6,7 @@
 
 <% arrPosts.forEach((element)=>{ %>
     <h1><%=  element.title       %></h1>
-    <p><%=   element.body      %> </p>
+    <p><%=   element.body.slice(0,100)+' ...'  %><a href="/post/<%= element.title %>">Read More</a> </p>
 <% })  %>
 
 <%- include("partials/footer"); -%>

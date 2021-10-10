@@ -61,10 +61,6 @@ app.get('/post/:stringRequest', (req, res)=> {
 
 app.get("/",(req,res)=>{
 
-    // posts.map((element)=>{
-    //      _.truncate([element.body], [options={ 'length': 100}])
-    // })
-
     res.render("home",{
         paragraphHomePage:homeStartingContent,
         arrPosts:posts
@@ -91,7 +87,7 @@ app.post("/compose",(req,res)=>{
     }
 
     posts.push(newPost);
-    // console.log(posts);
+
     res.redirect("/");
 })
 
